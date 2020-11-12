@@ -108,15 +108,15 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
+    # display the most common month ('mcm')
     mcm = MONTHS[df['month'].mode()[0]-1]
     print("The most common month is:  {}".format(mcm))
 
-    # display the most common day of week
+    # display the most common day of week ('mcdow')
     mcdow = WEEKDAYS[df['day_of_week(#)'].mode()[0]]
     print("The most common day of the week is: {}".format(mcdow))
 
-    # display the most common start hour
+    # display the most common start hour ('mcsh')
     mcsh = df['start_hr'].mode()[0]
     print("The most common start hour is: {}00 hours".format(mcsh))
 
@@ -130,17 +130,17 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # display most commonly used start station
+    # display most commonly used start station ('mcss')
     mcss = df['Start Station'].mode()[0]
     print("The most commonly used start station is: {}".format(mcss))
 
-    # display most commonly used end station
+    # display most commonly used end station ('mces')
     mces = df['End Station'].mode()[0]
     print("The most commonly used end station is: {}".format(mces))
 
-    # display most frequent combination of start station and end station trip
-    mccombo = df['station_combo'].mode()[0]
-    print("The most frequent combination of start station and end station trip is: {}".format(mccombo))
+    # display most frequent combination ('mfcombo') of start station and end station trip
+    mfcombo = df['station_combo'].mode()[0]
+    print("The most frequent combination of start station and end station trip is: {}".format(mfcombo))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -152,13 +152,11 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # display total travel time
     ttt = df['Trip Duration'].sum()
-    print("The total travel time : {}".format(ttt))
-
-    # display mean travel time
     mtt = df['Trip Duration'].mean()
-    print("The mean travel time is: {}".format(mtt))
+
+    # display total travel time ('ttt') and mean travel time ('mtt')
+    print("The total travel time : {}\n The mean travel time is: {}".format(ttt, mtt))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -184,7 +182,7 @@ def user_stats(df, city):
         female_users = df['Gender'].value_counts()['Female']
         print("The gender split is:  Male users = {}, Female users = {}".format(male_users,female_users))
 
-        # Display earliest, most recent, and most common year of birth
+        # Display earliest ('yob_e'), most recent ('yob_mr'), and most common ('yob_mc') year of birth
         yob_e = int(df['Birth Year'].min())
         yob_mr = int(df['Birth Year'].max())
         yob_mc = int(df['Birth Year'].mode()[0])
