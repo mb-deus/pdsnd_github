@@ -8,7 +8,7 @@ Project and README file created: 13 November 2020.
 
 
 ### Description
-The Bike Share project leverages the python programming language (including the librariues Numpy and Pandas specifically) to analyse three data sets in relation to bike share data from cities within the US.  Each csv data file includes a different US city.  
+The Bike Share project leverages the python programming language (including the libraries Numpy and Pandas specifically) to analyse three data sets in relation to bike share data from cities within the US.  Each csv data file includes a different US city.  
 
 The user of the tool selects a city to analyse, together with other basic filters, and the program then loads the respective data and presnts back a number of interesting metrics in relation to that data set.
 
